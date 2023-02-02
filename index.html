@@ -1,0 +1,101 @@
+<style>
+  #app {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  #tweet-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  #tweet-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #tweet-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  #tweet-list li {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    background-color: lightyellow;
+    margin-bottom: 10px;
+  }
+
+  #tweet-list li img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+</style>
+
+<div id="app">
+  <h1>Twitter Clone</h1>
+  <form id="tweet-form">
+    <textarea id="tweet-input"></textarea>
+    <button type="submit">Tweet</button>
+  </form>
+  <ul id="tweet-list"></ul>
+</div>
+
+<script>
+  const app = document.querySelector("#app");
+  const form = app.querySelector("#tweet-form");
+  const input = app.querySelector("#tweet-input");
+  const tweetList = app.querySelector("#tweet-list");
+
+  let tweets = [];
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const tweet = input.value;
+    tweets.unshift({
+      text: tweet,
+      avatar: `https://i.pravatar.cc/32?u=${Math.random()}`
+    });
+    input.value = "";
+    render();
+  });
+
+  function render() {
+    tweetList.innerHTML = "";
+    tweets.forEach(tweet => {
+      const tweetElement = document.createElement("li");
+      tweetElement.innerHTML = `
+        <img src="${tweet.avatar}" alt="Profile picture">
+        ${tweet.text}
+      `;
+      tweetList.appendChild(tweetElement);
+    });
+  }
+</script>

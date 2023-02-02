@@ -1,0 +1,50 @@
+#app {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 30px;
+  }
+  
+  #tweet-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  #tweet-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #tweet-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+  }
+  
+  #tweet-list li {
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    background-color: lightyellow;
+    margin-bottom: 10px;
+  }
+  
